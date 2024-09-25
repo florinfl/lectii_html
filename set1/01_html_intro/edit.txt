@@ -1,0 +1,56 @@
+Instalare Visual Studio Code
+
+De fiecare data cand incepem un proiect va trebui sa cream un folder
+
+Click dreapta pe folder si apoi 'Open with code' optiunea care a fost bifata la instalare VS Code
+
+Numele proiectului e si numele folderului, apare in stanga, in zona de fisiere. Primul buton de sus din cele 5 pe verticala arata sau ascunde structura proiectului
+
+Cand editam un fisier apare o bulina in dreapta numelui fisierului care semnifica faptul ca nu e salvat inca. Vom folosi cel mai adesea Ctrl + S. Exista o metoda 'autosave' dar nu e recomandata. Mai bine avem control noi asupra momentului salvarii.
+
+Nume sugestive pentru proiect. De exemplu numele 'proiect1' nu semnifica nimic, nu e recomandat. 
+
+Voi crea aici in folderul de lucru, HTML1_VS_Code, un fisier HTML, index.html.
+
+De ce index.html? Pentru ca e o conventie pentru denumirea primului fisier dintr-un proiect format din documente.html.
+
+obs: Vom folosi adesea denumirea de document.html si nu neaparat pagina web. O pagina web e un proiect gata creat, gata sa fie incarcat pe un site de hosting. Un document HTML e doar un fisier pe care il putem deschide in browser. De cele mai multe ori vom crea fisiere index.html sau cu alte denumiri doar cu scopul de a invata sau testa
+
+Nu e nevoie sa cream o structura specifica pentru un document HTML, orice scriem intr-un fisier text va fi interpretat de catre browser ca text si afisat. Totusi vom crea o structura pentru documentul HTML de fiecare data.
+
+Se insereaza simbolul !, shift + 1
+
+Se activeaza automat o unealta de autocompletare (autocomplete)
+
+Si anume Emmet autocomplete
+
+Cateodata dispare sugestia de autocomplete, se poate intampla sa dam click in alta parte sau sa mutam cursorul cu sageti. Putem readuce meniul si sugestia de autocomplete cu Ctrl + space
+
+Se alege cu tab, de obicei prima sugestie. O vom folosi tot timpul, nu doar pentru crearea documentelor html ci si pentru toate tag-urile din pagina.
+
+Structura unui document HTML e data de 3 taguri
+
+<html>
+    <head>
+        In head sunt informatii generale despre pagina
+        link-uri la fisiere externe, de stiluri sau Javascript
+        meta informatii....
+    </head>
+
+    <body>
+        In body se afla informatia din pagina web. E zona in care vom adauga tot ceea ce browser-ul va traduce / interpreta si apoi afisa in fereastra
+    </body>
+</html>
+
+
+Sa modificam documentul HTML pe care l-am creat. Primul lucru putem modifica titlul paginii. Fiecare pagina web are un titlu pe care il afiseaza in bara de nume
+
+Vom folosi denumirea de titlul pentru pagina si titlu pentru heading. Heading inseamna titlu in engleza dar in documentatie se folosete denumirea title pentru numele care apare in partea de sus a ferestrei, nume care denumeste pagina web sau site-ul. Tot acolo apare si un icon.
+
+Insa de cele mai multe ori cand ne vom referi la titlu, ne vom referi la headings asa cum e titul/ heading h1 pe care il avem acum in body
+
+Se observa ca trebuie sa dau refresh ca sa vad modificarile din pagina. Exista o metoda mai buna pentru a vedea modificarile in browser, instalarea unui plugin de tip server
+
+Vom folosi un plugin pentru simularea unui server real dar care este lansat din editor. Plugin-ul se cheama Live Server si se instaleaza din zona de plug-inuri. E deja instalat aici.
+
+Cu click dreapta in zona de editare se poate lansa browser-ul implicit. Daca vreti alt browser atunci trebuie setat sa fie implicit/default acel browser.
