@@ -54,3 +54,7 @@ Se observa ca trebuie sa dau refresh ca sa vad modificarile din pagina. Exista o
 Vom folosi un plugin pentru simularea unui server real dar care este lansat din editor. Plugin-ul se cheama Live Server si se instaleaza din zona de plug-inuri. E deja instalat aici.
 
 Cu click dreapta in zona de editare se poate lansa browser-ul implicit. Daca vreti alt browser atunci trebuie setat sa fie implicit/default acel browser.
+
+Se observa ca folosind Live Server modificarile se actualizeaza instant. Vom folosi Live Server mai tot timpul.
+
+Cam atat pentru inceput. De regula inainte de a incepe sa invatam despre o anumita tehnologie cream un fisier Hello World pentru a incepe lucrul. Cam asta am facut aici, un prim fisier HTML pe care l-am deschis in browser, am vazut structura lui, am folosit autocomplete pentru creare structurii. Am inserat tag-uri, vom vorbi destre tag-uri imediat. 
