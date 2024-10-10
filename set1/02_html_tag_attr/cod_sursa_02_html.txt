@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tag-uri si atribute</title>
+</head>
+
+<body>
+    <!-- elementele de tip heading si paragraf fac parte din aceeasi clasa de elemente pentru adaugat text -->
+    <h1>Bine ai venit</h1>
+    <h2>Prima pagina web</h2>
+    <p>Aici este text obisnuit</p>
+
+    <img src = "./imagine.jpg" width="320">  <!-- o imagine cu dimensiunea pe latime de 320 pixeli -->
+</body>
+
+</html>
