@@ -1,0 +1,75 @@
+Intrebari raspunsuri:
+
+
+
+De ce trebuie creat un folder pentru un proiect daca avem nevoie doar de un singur fisier?
+
+Este bine indiferent cate fisiere contine proiectul nostru( de obicei va contine mai multe fisiere), sa avem un folder dedicat acelui proiect. Mai mult editorul VS Code il trateaza special, ca un folder de proiect si permite crearea rapide a fisierelor si subfolderelor din meniul asociat folderului de proiect.
+
+
+
+Odata folderul creat in Windows cum il putem deschide ca si proiect in VS Code?
+
+Se poate chiar din VS Code de la File - Open Folder... Insa mai simplu e sa alegem ‘Open with Code’ din meniul (contextual) click dreapta pe folderul de proiect in Windows. 
+Obs:
+Trebuie insa sa avem grija ca la instalare VS Code sa bifam optiunea de integrare in Windows pentru adaugarea acestei comenzi in meniul click dreapta
+
+
+
+Cum cream un fisier HTML?
+
+In VS Code poate fi creat din meniul File dar mai simplu exista un buton pentru creare fisier pe numele folderului de proiect. Se da numele index.html
+
+
+
+Este obligatoriu sa fie denumit index.html?
+
+Poate fi denumit oricum atat timp cat are extensia .html dar e o conventie care provine si din faptul ca un server nu recunoaste fisierul radacina a unui site decat daca are un anumit nume, de obicei e index.html.\
+
+
+
+Ce contine un document HTML?
+
+Un fisier HTML contine o structura de etichete, (engleza tags), cu ajutorul carora informatia este inteleasa si afisata corespunzator de catre browser.
+
+
+
+Care este structura minimala pentru a crea un fisier HTML?
+
+Desi practic poate fi scris orice intr-un fisier HTML iar browser-ul va afisa ce gaseste in document, se considera ca este necesara totusi o structura minima data de tag-ul <html>. La randul lui tag-ul <html> contine doua tag-uri<head> si <body>
+
+
+
+Cum poate fi adaugata aceasta structura minimala? Trebuie stiute tag-urile care formeaza structura?
+
+Cu timpul vor fi invatate dar VS Code are o unealta pentru autocompletare care permite adaugarea structurii unei pagini pentru noi.
+Se tasteaza semnul exclamarii ‘!’ si apoi se alege prima optiune oferita de editor. Unealta pentru autocompletare se numeste ‘Emmet autocomplete’.
+
+
+Care este utilitatea lui Emmet autocomplete in general?
+
+Emmet autocomplete permite adaugarea oricarui tag in pagina doar tastand primele litere ale tag-ului si atunci cand apare sugestia ori alegem cu mouse-ul ori apasam tab.
+In caz ca dispare sugestia o putem aduce inapoi cu Ctrl + space
+
+
+
+Care este rolul tag-ului <html>
+
+Tag-ul <html> face parte din structura de baza. Are rolul sa determine browserul sa inteleaga ca fiserul e de tip HTML.
+La randul lui <html> contine alte doua tag-uri <head> si <body>
+
+
+
+Care este rolul lui <head>?
+
+Tag-ul <head> contine informatii generale despre pagina, link-uri la script-uri Javascript sau foi de stiluri CSS.
+Contine tag-ul <title> cel care da numele paginii afisat pe bara de nume al browserului.
+ 
+Obs:
+Emmet autocomplete insereaza si cateva meta-informatii generale, tag-ul <meta>, legate de setul de caractere, charset ‘UTF-8’ si modul de vizualizare pe un ecran oarecare, name = “viewport”... dar pe care le vom ignora pentru moment
+
+
+
+Care este rolul lui <body>?
+
+Tag-ul <body> este locul unde se afla toata informatia vizibila din browser. E vorba de toate tag-urile care au scopul de a specifica cum se afiseaza informatia, este locul unde este scris chiar limbajul HTML.

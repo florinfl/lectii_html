@@ -1,0 +1,92 @@
+Pentru lucrul cu documente HTML, creare, editare si chiar deschidere in browser vom folosi editorul Visual Studio Code (atentie, e diferit de Visual Studio !).
+
+La instalarea aveti grija sa bifati optiunea pentru integrare in meniul click dreapta din  Windows.
+
+Mai intai se incepe cu crearea unui folder pentru proiect.
+In folderul de lucru creti un folder part1_intro si in interior creati un alt folder
+de ex:  html1_primaPagina.
+
+E bine sa dati nume sugestive proiectelor sau folderelor proiect. Nu e bine sa creati fisiere reprezentand proiecte diferite in acelasi folder.
+
+Dati clic dreapta pe folder si alegeti “Open with Code”.
+Odata proiectul deschis se pot adauga fisiere.
+Dati click pe butonul de adaugare fisier din dreptul numelui proiectului. Alternativ se poate alege File - New File.
+Numele fisierului atunci cand lucram intr-un proiect nou de obicei este index.html, fiind numele pe care il recunoaste orice server.
+
+In zona de editare tastati simbolul ‘!’, shift + tasta 1. Imediat apare un mesaj care sugereaza autocompletarea cu structura documentului HTML. Acest mecanism de autocomplete e o facilitate specifica unui editor pentru limbaje de programare iar in cazul acesta ne ofera posibilitatea sa adaugam structura documentului deodata.
+
+In cazul in care sugestia de autocomplete dispare o puteti readuce cu shortcut-ul Ctrl + space.
+
+Odata aleasa prima optiune de autocomplete va fi inserat codul de baza pentru un document HTML:
+
+//////////////////////
+Exemplu fisier index.html
+///////////////////
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+/////////////////////////////
+
+Documentul HTML incepe cu tag-ul 
+<!DOCTYPE html>
+care este o metoda de a specifica versiunea de HTML ce va fi folosita de catre browser pentru a analiza / parsa pagina. Parsare inseamna identificare elemente si afisarea lor in browser.
+
+Urmeaza tag-ul <html> care este ‘radacina’, root, a documentului.
+
+In interior sunt alte doua tag-uri <head> si <body>
+
+Se observa mecanismul de incapsulare / nesting folosit in HTML. In tag-ul <html> sunt incluse tag-urile <head> si <body>
+
+La randul lui tag-ul <head> contine titlul paginii <title> si alte tag-uri cu informatii generale despre pagina web.
+
+In tag-ul <body> vor fi incluse toate tag-urile care contin informatia propriu-zisa, tot ce se afiseaza in browser.
+
+Vom modifica titlul paginii din <head>:
+<title>Prima pagina </title>
+
+Vom adauga un paragraf de tip titlu, heading, <h1>.
+
+Sub titlu inseram un paragraf <p>
+
+////////////////
+Exemplu fisier index2.html
+////////////////
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prima pagina</title>
+</head>
+
+<body>
+    <h1>Bine ai venit</h1>
+    <p>Aceasta este primul exercitiul HTML, realizarea unei pagini web simple.</p>
+</body>
+
+</html>
+/////////////////////////
+
+
+Pentru vizualizare pagina este suficient sa deschidem cu dublu click fisierul index.html din folderul de proiect. Se va deschide cu browser-ul prestabilit. 
+
+Pentru a deschide rapid folderul fisierului din VS Code se poate da click dreapta pe numele fisierului si se alege “Reveal in File Explorer”
+
+O metoda mai folosita de utilizatorii VS Code este folosind un plugin care imita un server. 
+Se instaleaza de la sectiunea de plugin-uri, plugin-ul Live Server.
+
+Sectiunea de plugin-uri se deschide dand click pe al cincilea buton din cele 5 butoane verticale din stanga sus.
+
+Odata instalat Live Server se poate da click oriunde in zona de editare fisier si se alege Open with live server. Se deschide browserul prestabilit cu documentul HTML curent.

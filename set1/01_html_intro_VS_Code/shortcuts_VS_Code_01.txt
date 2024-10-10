@@ -1,0 +1,30 @@
+Shortcut-uri VS Code:
+
+Am vazut ca optiunea autocomplete se activeaza automat atunci cand sunt recunoscute cuvinte cheie sau denumiri pe care le-am folosit anterior. Tot ceea ce trebuie sa facem e sa alegem optiunea corespunzatoare din lista de sugestii care se deschide in dreptul cuvantului pe care il editam.
+
+Exista insa multe alte optiuni pentru editare care au devenit standard si sunt integrate chiar si in editoarele online.
+
+Ctrl + D - gasire cuvinte duplicat si creare cursoruri pentru fiecare cuvant pentru a fi editat sau sters.
+
+Alt + click - acelasi lucru, crearea cursoruri suplimentare dar numai acolo unde dam click. Se poate adauga sau sterge text
+
+Shift + delete - stergerea unui rand
+
+Alt + Shift + Sageata sus sau jos, duplicat rand, foarte utilizat !
+
+Alt + Sageata sus sau jos, mutare rand sau mai multe randuri selectate, foarte utilizat!
+
+Ctrl + space - activare optiuni autocomplete
+
+Ctrl + / - transformare selectie in comentariu
+
+Tab - indentare selectie, Shift + Tab revers indentare, foarte utilizat!
+
+Alt + Shift + F - format document, foarte utilizat dar exista si optiunea pe click dreapta - ‘Format document’ (organizeaza codul pentru a fi usor de citit)
+
+Ctrl + ‘+’ respective Ctrl + ‘-’ pentru zoom in / out
+
+Ctrl + , sau File - Preferences - Settings
+Redimensionare Font editor - Se cauta Font Size pentru modificare font Editor
+
+Tot de la File - Preferences - Keyboard Shortcuts pot fi modificate (sau gasite) shortcut-urile din VS Code
