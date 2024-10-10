@@ -1,0 +1,32 @@
+Intrebari raspunsuri:
+
+HTML
+
+Ce reprezinta literele din numele HTML?
+Este prescurtarea de la HyperText Markup Language. 
+
+Ce inseamna HyperText Markup Language?
+Limbaj pentru marcarea textului.
+
+Ce se poate realiza cu HTML?
+Html permite adaugarea intr-un document text, imagini si alte tipuri de informatii.
+
+Ce reprezinta elementele HTML?
+Elementele HTML sunt componentele dintr-o pagina web. Fiecare element are un rol, afisare titlu, paragraf, imagine, tabel etc.. Cand ne vor referi la un element ne vom referi la tipul lui, exemplu element paragraf. 
+
+Ce inseamna nested?
+Nest inseamna cuib. Un cuib este ca un modul care poate contine alte cuiburi/ module
+
+Elementele se comporta ca niste module care pot contine la randul lor alte module sau elemente. Acest mecanism in care un element poate contine alte elemente se numeste in engleza ‘nesting’.
+
+
+Ce reprezinta tag-urile HTML?
+Tag-urile HTML formeaza elementele corespunzatoare. Ex: Elementul p este dat de tag-ul <p>. Le vom numi tag-uri ca in engleza desi in romana s-ar traduce etichete. De aici provine si denumirea de HTML, limbaj de marcare cu etichete/ tag-uri.
+
+Cate tipuri de tag-uri exista?
+
+Un tag are forma <tag> </tag> pentru elementele cu continut text sau simplu <tag> daca nu contine text sau alte elemente.
+Tag-ul <p> permite crearea de elemente paragraf, tag-ul <a> permite crearea de elemente link, tag-ul <img> creaza elementul imagine. Fiecare element are un tag asociat care il creaza.
+
+Ce rol au atributele pentru un element?
+Un atribut permite adaugarea de informatii suplimentare utile pentru descrierea modului de afisare a elementului. Mai poate fi folosit pentru stocarea de date. Unele tag-uri nu pot fi afisate corect sau nu functioneaza daca nu au informatiile necesare stocate in atribute cum sunt link-urile sau imaginile.
