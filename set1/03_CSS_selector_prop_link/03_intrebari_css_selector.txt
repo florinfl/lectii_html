@@ -1,0 +1,105 @@
+Intrebari raspunsuri:
+
+
+CSS
+
+Ce reprezinta un selector?
+Un selector este numele elementului sau grupului de elemente care urmeaza a fi stilizate. Un element devine selector cand numele lui este scris in zona de stiluri si e insotit de blocul de reguli CSS. De exemplu p este elector: p{..}
+
+Ce rol au proprietatile CSS
+
+O proprietate CSS este un parametru vizual care poate fi modificat. De exemplu latimea (width), inaltimea(height), culoarea(color), modul de afisare block/inline (display) etc.
+
+Cum modifica o valoare a unei proprietati modul de afisare a unui element?
+
+O proprietate trebuie sa aiba o valoare.
+O valoare este atasata unei proprietati folosind  simbolul ‘doua puncte’
+proprietate: valoare;
+Proprietatea intotita de valoare permite modifcarea stilului obiectului conform acelei proprietati.
+
+Ex: color:red; permite modificarea culorii in rosu.
+width:200px; permite modificarea latimii la 200 pixeli
+
+Care este o regula CSS?
+O regula CSS este “instructiunea” formata din selector, proprietate si valoare care se afla in zona de stiluri. Putem avea mai multe reguli CSS asociate unui selector si atunci spunem ca exista un set de reguli CSS pentru selectorul X.
+
+Exemplu de set de reguli CSS pentru paragraf, fiecare linie din blocul {...} reprezinta o regula CSS:
+
+p{
+  color:red;
+  font-size:1.5rem;
+  font-weight:900;
+}
+
+Cate tipuri de selectori exista?
+
+Toti selectorii sunt fie selectori de baza fie combinatii din selectorii de baza.
+
+Pe langa selectorii de baza mai exista pseudoclase si selectori pe baza atributelor dar reprezinta un subset al selectorilor de tip:
+In lista de selectori de pe w3schools primii 12 sunt selectori de baza sau combinatii:
+https://www.w3schools.com/cssref/css_selectors.php
+
+Urmatorii sunt selectori cu pseudoclase si atribute.
+Selectorii de baza sunt de tip, clasa, ID
+
+Cum este folosit selectorul de tip?
+
+Se scrie tipul elementului ( ex: p, h1, table, li, ul, a, img ) si apoi se adauga blocul cu reguli CSS. In acest mod toate regulile CSS din bloc se aplica pentru toate elementele din pagina care se potrivesc acelui selector de tip.
+
+h3{color:red;
+  font-style:italic;
+} 
+
+determina colorarea tuturor titlurilor de nivel 3 din pagina in rosu si le stilizeaza italic (inclinat).
+
+
+Cum se foloseste selectorul de clasa si ce rol are?
+
+Pentru a putea fi folosit un selector de clasa acesta trebuie adaugat cu atributul class in interiorul unui tag.
+
+<h3 class=”subtitlu-sectiune”>Un titlu de nivel 3 de la inceputul unei sectiuni dintr-un capitol mai mare</h3>
+
+apoi selectorul de tip clasa trebuie declarat in zona de stiluri
+
+.subtitlu-sectiune{
+   color:green;
+   font-size:1.2rem;
+}
+
+Care este diferenta intre selectorul de tip clasa si cel de tip ID?
+
+Selectorul de tip clasa se aplica mai multor elemente care contin la atributul class numele clasei, in timp ce pentru selectorul ID ar trebui folosit doar pentru un singur element. In realitate nu exista diferenta intre selectorul ID si class in afara de faptul ca selectorul ID are prioritate mai mare. Insa orice pagina trebuie sa fie creata pentru a permite adaugarea de Javascript. Iar Javascript nu tolereaza mai multe elemente cu acelasi ID. Deci nu vom folosi nici in CSS elemente cu acelasi ID.
+
+Cum este creat un selector tip ID?
+La fel ca in cazul unui selector de tip class, se adauga simbolul ‘#’ in fata numelui. Trebuie adaugat atributul id pentru un element si apoi selectorul de tip ID trebuie declarat in zona de stiluri.
+
+#link-back
+{
+   color:blue;
+   font-size:2rem;
+   font-weight: 900;
+}
+
+<a id=”link-back” href=”./../index.html”>Back</a>
+
+
+
+Obs. Selectorii nu trebuie invatati deodata, singura metoda corecta e prin exercitii simple pornind de la selectorii de baza. Fara exemple concrete sau rezolvari in cadrul proiectelor nu se poate invata modul de aplicare pentru ca trebuie inteles cadrul sau situatia in care este necesara folosirea unui selector mai complex.
+
+
+
+
+/////////////
+Adaugare CSS in pagina
+
+De ce e bine sa pastram in fisiere separate codul HTML si CSS.
+E in general vorba de ‘Separation of concerns’, incercam pe cat se poate sa separam codul dupa scopul pe care il indeplineste, HTML adauga informatie in pagina, CSS il stilizeaza si vom incerca sa le pastram in fisiere diferite conform scopului fiecaruia.
+
+Cum se adauga CSS in pagina?
+Avem metoda cu adaugare CSS in interiorul lui <head> folosind tag-ul <style>
+Metoda recomandata e folosirea referintelor catre fisiere externe CSS cu ajutorul tag-ului <link>
+
+Cum se foloseste Tag-ul <link>?
+Pentru referinta (creare legatura catre fisier CSS) se completeaza in atributul href calea catre fisierul CSS
+<link href=”./stiluri.css” rel=”stylesheet”>
+Atributul rel specifica tipul de legatura, e vorba de foi de stiluri(stylesheet)

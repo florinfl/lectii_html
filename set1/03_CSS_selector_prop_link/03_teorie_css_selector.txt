@@ -1,0 +1,157 @@
+CSS (Cascade Style Sheet)
+
+Termeni folositi pentru limbajul CSS
+
+Pe langa termenii folositi in cazul limbajului HTML exista cativa termeni pe care ii vom folosi in mod curent pentru CSS: selectori, proprietati si valori (selectors, properties, values).
+
+Selectori (selectors)
+
+Orice element vizibil adaugat in pagina web poate fi stilizat. Un selector se refera la un anumit element asupra caruia se doreste aplicarea de stiluri. Deoarece pot fi sute sau chiar mii de elemente intr-o pagina, selectorii pot fi complecsi, depinzand cat de precisi dorim sa fim cand ii ‘selectam’ pentru stilizare. Daca dorim sa selectam toate paragrafele din pagina atunci selectorul este simplu in acest caz, fiind tipul de element si anume ‘p’ . Va selecta toate paragrafele <p> din pagina.
+
+Pentru a selecta toate tilurile <h1> vom folosi ‘h1’ iar pentru toate link-urile vom folosi ‘a’. Deci pentru elemente selectorii sunt chiar numele elementelor dar fara paranteze unghiulare.
+
+In interiorul sectiunii CSS selectorii sunt insotiti de acolade {...} care reprezinta un container cu stilurile care sunt aplicate acelui selector.
+
+p {...}
+
+Proprietati(properties)
+
+Odata creat un selector, in blocul determinat de acolade de dupa selector se vor afla proprietatile care vor aplica stiluri pentru acel selector.
+
+p {
+   color:   ....  ;
+   font-size:  .... ;
+}
+
+Valoare
+Fiecare proprietate este urmata de simbolul ‘:’ si apoi valoarea proprietatii. Dupa valoare se adauga ‘;’.
+
+Un selector urmat de un bloc de proprietati si valori reprezinta o  un set de reguli CSS.
+
+
+p {
+   color: green;
+   font-size: 14px;
+}
+
+Este obligatoriu ‘;’ la finalul fiecarei reguli. Daca nu este adaugat ‘;’ la finalul regulii CSS, regulile care urmeaza sunt ignorate
+
+
+
+//////////////////
+
+Utilizarea selectorilor
+
+Exemplu de selectori
+https://www.w3schools.com/cssref/trysel.php
+
+Selectorii indica ce elemente HTML sunt stilizate. Cei mai utilizati selectori sunt:
+selectorul element type
+selectorul class
+selectorul ID
+
+Selectorul ‘element type’ indica elementele dupa tipul lor. De exemplu daca dorim sa selectam toate paragrafele si sa le coloram in verde vom folosi selectorul ‘p’
+
+p { color : green; }
+
+In acest fel toate paragrafele din document vor fi colorate in verde
+
+<p>paragraf1</p>
+<p>paragraf2</p>
+
+rezultat:
+paragraf1
+paragraf2
+
+Selectorul ‘class’
+
+Nu intotdeauna ne dorim sa selectam toate elementele de un anumit tip. De obicei dorim sa ‘selectam’ doar o anumita ‘clasa’ de elemente. Clasa va avea un nume care va fi atasat elementului folosind atributul ‘class’
+
+De exemplu dorim din 4 paragrafe doar doua sa fie colorate in verde
+
+.verde { color : green; }
+
+<p class=”verde”>paragraf1</p>
+<p>paragraf2</p>
+<p class=”verde”>paragraf3</p>
+<p>paragraf4</p>
+
+rezultat:
+
+paragraf1
+paragraf2
+paragraf3
+paragraf4
+
+O clasa este denumita de catre noi si poate avea orice nume. La declararea clasei, inainte de nume, se adauga simbolul punct ‘.’ . In acest fel am transmis browser-ului ca este o clasa si nu un selector tip element
+
+Selectorul de tip ID
+
+ID-ul se adauga ca si in cazul clasei cu un atribut ‘id’
+
+ID-ul este unic si se utilizeaza atunci cand dorim sa selectam un singur element.
+
+#titlul-principal {
+    color: red;
+    font-size:20px;
+}
+
+.titlu-h2 {
+   color: gray;
+   font-size: 16px;
+}
+
+<h1 id=”titlul-principal”> Welcome! </h1>
+
+<h2 class=”titlu-h2”> Prima sectiune </h2>
+...
+<h2 class=”titlu-h2”> A doua sectiune </h2>
+
+rezultat:
+
+Welcome
+
+Prima sectiune
+....
+A doua sectiune
+
+
+In acest caz titlul principal e unic si putem folosi un selector ID pentru el.
+
+Titlurile de nivel 2 pot fi mai multe si atunci putem folosi selector de tip clasa pentru fiecare titlu.
+
+Un selector de tip ID poate fi denumit oricum dar trebuie sa aiba la inceputul numelui simbolul diez ‘#’ / hash.
+
+
+
+
+//////////////////////
+Adaugare CSS in pagina
+
+
+Regulile CSS in general sunt stocate in fisiere separate in afara fisierului HTML. Apoi fisierul CSS poate fi integrat in pagina folosind tag-ul <link> in interiorul tag-ului <head>
+
+Daca fisierul cu reguli CSS se numeste “stiluri.css” atunci in atributul href din <link> se adauga numele fisierului, “stiluri.css”. Sau calea la fisier “./stiluri.css”, in acest caz folderul in care se afla fisierul HTML.
+
+Daca fisierul “stiluri.css” se afla intr-un alt folder, de exemplu folderul “styles” contine fisierul “stiluri.css”, va trebui sa oferim calea completa: href = “./styles/stiluri.css”
+
+<head>
+  <link rel = “stylesheet” href = “stiluri.css”>
+</head>
+
+Obs. Veti putea adauga elementul link folosind optiunea autocomplete atunci cand tastati ‘link’
+
+
+Mai exista posibilitatea crearii unui tag <style> in interiorul lui <head> si acolo pot fi adaugate reguli CSS. Nu este considerata o idee buna pentru proiecte mai mari dar pentru teste si proiecte mici poate fi folosita.
+
+<head>
+  <style>
+....reguli CSS
+  </style>
+</head>
+
+
+Exista si posibilitatea adaugarii de stiluri pentru fiecare element in parte folosind atributul style(stilizare inline). Valoarea lui style va fi formata din lista de proprietati CSS si valori. Nu este insa o metoda recomandata.
+
+Ex:
+<p style = “color: red;”>paragraf stilizat inline </p>
