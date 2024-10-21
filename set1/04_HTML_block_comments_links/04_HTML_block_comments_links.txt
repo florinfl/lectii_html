@@ -1,0 +1,385 @@
+///////////////
+Elemente HTML, tipuri de elemente block si inline, elementele div si span. Comentarii HTML si CSS
+//////////////
+
+Elemente HTML
+
+Pentru a crea pagini web trebuie sa stim ce elemente HTML sunt cele mai utile pentru a afisa diferite elemente de continut.
+
+
+Divisions, spans
+
+Diviziunile <div> si elementele <span> sunt containere folosite exclusiv pentru stilizare. Sunt containere cu utilizare generala. 
+Daca in cazul paragrafelor <p> tag-ul ‘p’ semnifica existenta unui paragraf si ofera textului acest coportament de paragraf, in cazul div-urilor si span-urilor nu exista o astfel de semnificatie asociata si nici o stilizare initiala.
+
+Tocmai din cauza ca nu au o tinta sau utilizare dedicata, div-urile si span-urile sunt foarte utile fiind folosite oriunde in pagina, putand fi adaptate in orice context.
+
+///
+Exemplu pentru div:
+
+<div id=”main-content”>
+   <h1>Titlu principal</h1>
+   <div class=”sectiune”>
+      <h2>Sectiune 1</h2>
+      <p>....paragrafe sectiune 1 </p>
+  </div>
+</div>
+
+Se poate observa rolul de container a lui ‘div’, e capabil sa stocheze alte elemente in interior, inclusiv alte diviziuni <div>. Poate face acest lucru pentru ca se comporta ca o cutie. O cutie in planul ferestrei din browser e de fapt un dreptunghi. Dreptunghiurile se aseaza in mod natural unele peste altele, de sus in jos si pot contine la randul lor alte dreptunghiuri. Acest comportament poarta numele de ‘display de tip block’
+
+Pe de alta parte <span> nu e o “cutie block”. Din contra, e de tip “display inline” si are rolul de a stiliza text. Se afla pe aceeasi linie, “inline”, cu alte elemente text.
+
+Ex:
+<p> Acest text contine un <span class=”verde”> cuvant </span> de culoare verde</p>
+
+In acest caz span-ul de clasa “verde” se va afla pe acelasi rand cu restul textului din paragraf. 
+
+Rezultat:
+Acest text contine un cuvant de culoare verde
+
+Elementul span fiind usor de introdus in orice text va fi folosit acolo unde anumite cuvinte sau litere trebuie formatate diferit de restul textului.
+
+///////////
+Elemente de tip block si inline
+/////////
+Putem in acest moment sa categorisim elementele HTML ca fiind elemente de tip block si inline.
+
+Cele de tip block sunt blocuri de forma dreptunghiulara care se aseaza unele peste altele incepand cu coltul din stanga sus a browser-ului sau containerului in care se afla.
+
+Cele de tip inline se afla pe acelasi rand cu textul sau elementele inline anterioare.
+
+////////////
+Comentarii (comments)
+////////////
+Comentariile nu sunt elemente HTML, sunt texte care permit adaugarea de explicatii si care sunt ignorate de catre browser.
+
+Comentariile din codul HTML sund de forma
+
+<!- - comentariu - - >
+
+Ex
+
+<!- - sectiunea principala - - >
+<div class=”main-section”>
+
+<!- - sectiunea secundara -- >
+   <div class=”sectiune”>
+    ...
+   </div> 
+<!- - sfarsit sectiunea secundara -- >
+
+</div>
+<!- - sfarsit sectiunea principala -- >
+
+
+Pentru CSS comentariile se afla intre
+/* explicatii */
+
+Sunt acelasi tip ce comentarii folosite pentru limbaje de programare, ex JavaScript.
+
+///////////
+Titluri si paragrafe
+///////////
+
+Elemente HTML pentru adaugare text in pagina
+
+In mediul online exista diferite forme de continut dar textul e predominant. Pentru text sunt folosite cel mai des elemente headings(titluri), paragrafe, bold, italic, liste, link-uri, tabele.
+
+Headings (titluri)
+
+Headings sunt elemente de tip block si exista 6 neveluri de headings in functie de importanta.
+<h1> pentru cel mai important, <h6> cel mai putin important. Pe langa inserare text sub forma de titlu, headings permit motoarelor de cautare sa indexeze si sa determine continutul unei pagini.
+
+Cel mai adesea vom folosi heading-urile <h1> si <h2>, mai rar <h3>
+
+<h1>Titlu nivel 1</h1>
+<h2>Titlu nivel 2</h2>
+<h3>Titlu nivel 3</h3>
+
+Rezultat
+
+Titlu nivel 1
+Titlu nivel 2
+Titlu nivel 3
+
+
+
+Paragrafe
+
+Paragrafele de obicei urmeaza dupa headings. Ca si titlurile headings sunt elemente de tip block. Paragrafele apar unul sub celalalt si adauga informatie text paginii. Aproape tot ce citim pe Internet e sub forma de paragraf.
+
+<p>Un text oarecare intr-un paragraf</p>
+<p>Un text oarecare intr-un paragraf</p>
+
+Paragrafele nu sunt implicit indentate dar exista proprietatea text-indent in CSS care permite indentarea ulterior.
+
+//////////////////
+Bold si italic
+//////////////////
+Bold si italic
+
+Pentru a pune in evidenta texte se procedeaza ca si in cazul editoarelor de text, se modifica formatul textului in bold (ingrosat) sau italic (inclinat). Sigur, exista posibilitatea de a schimba fontul cu totul pentru fragmente de text folosind tag-ul span dar se presupune ca folosirea tag-urilor dedicate pentru bold si italic e mai simpla.
+
+Pentru bold exista tag-urile <strong> si <b> iar pentru italic exista tag-urile <em> si <i>. 
+
+Din punct de vedere semantic <strong> si <em> (emphasize) specifica faptul ca textul va fi scos in evidenta in timp ce <b> si <i> inseamna doar bold si italic. Din acest motiv si pentru faptul ca sunt mai noi tag-urile strong si em sunt folosite mai des.
+
+<strong> text strong (bold)</strong>
+<b>text bold la fel ca strong</b>
+
+<em>text emphasized (italic></em>
+<i>text italic, la fel ca em</i>
+
+rezultat:
+
+text strong (bold)
+text bold la fel ca strong
+
+text emphasized (italic)
+text italic, la fel ca em
+
+In realitate tag-urile strong, b, em si i pot fi folosite ca si containere precum <span> fiind elemente inline si pot fi formatate oricum cu CSS. Dar din punct de vedere semantic, adica folosirea pentru altceva decat scopul destinat, nu este recomandat. Insa nu ne opreste nimic sa modificam scopul unui tag, vom gasi uneori in alte proiecte tag-uri care sunt folosite in alte scopuri decat cele pentru care au fost create.
+
+//////////////////
+Tag-uri semantice
+////////////////
+
+Crearea structurii unei pagini
+
+Folosirea tag-ului div pentru orice container a fost pentru multa vreme singua optiune pe care au avut-o designerii web. Odata cu versiunea HTML5  au aparut ‘div-uri’ denumite pentru scopul pentru care pot fi folosite. 
+
+Astfel avem la dispozitie div-uri pentru: 
+articole <article>
+sectiune <section>
+//de regula sunt mai multe articole intr-o sectiune
+
+bara sau sectiune laterala <aside>
+subsol <footer>
+antet <header>
+//header-ul contine de obicei zona de navigare, un titlu, o imagine sigla sau reprezentativa pentru site
+
+zona de continut principala <main>
+zona de navigare <nav>
+
+Desi se poate folosi in continuare un div pentru a desemna o zona din pagina, acum e recomandat sa apelam la alternativa semantica
+
+De exemplu. Varianta cu div pentru un layout ce contine un container cu header,  zona de navigare, zona main
+
+<div class=”container”>
+ <div class= “header”>
+     <div class=”nav”>....
+     </div> <! - - sfarsit nav - - >
+  </div> <! - - sfarsit header- - >
+
+ <div class=”main”>
+ </div><! - - sfarsit main- - >
+
+</div><! - - sfarsit container- - >
+
+Se observa ca pentru a identifica sfarsitul unei zone din layout trebuie sa adaugam un comentariu dupa sfarsitul fiecarui tag <div>
+
+Iata cum arata dupa ce inlocuim div-urile cu tag-urile semantice asociate
+
+<div class=”container”>
+  <header>
+    <nav>....
+    </nav>
+  </header>
+
+   <main>....
+   </main>
+</div><! - - sfarsit container- - >
+
+Se observa ca nu mai suntem nevoiti sa marcam prin comentarii sfarsitul unei zone din layout. Sfarsitul de tag ne spune cand se termina o zona. De exemple </header> este sfarsit de header.
+Pe langa asta e mai usor de creat o zona folosind un tag semantic decat sa tot adaugam clase si id-uri pentru div-uri.
+
+Iata cum arata modul de folosire a tag-urilor semantice in interiorul unei pagini si cum ar trebui sa contribuie la layout-ul acesteia.
+
+
+Obs: Poate aparea la inceput confuzie intre tag-urile cu nume asemanatoare. De exemplu <header> e tag semantic cu scop in interiorul unui layout, e la inceputul paginii. 
+<head> e primul element din interiorul unui document HTML, contine date despre pagina si link-uri la fisiere externe.
+headings, <h1>, <h2>... sunt titluri, texte care ies in evidenta, formatate cu bold si dimensiune mai mare si care desemneaza inceputul unei zone de text cu semnificatie diferita in cadrul aceleasi pagini.
+
+//////////////
+Link-uri
+//////////////
+
+Crearea de link-uri (hyperlinks)
+
+Pe langa text, una din componentele de baza ale Internet-ului o reprezinta “link-ul” (hyperlink). Link-urile sunt adaugate in pagina folosind elementul <a>.
+
+Link-uri catre site-uri de pe Internet
+
+ Elementul <a> are forma 
+<a href=”http://www.domeniu.com”>locatie web</a>
+
+Deoarece <a> este de tip inline poate fi inserat oriunde in text. 
+
+Exemplul de mai sus poate fi integrat intr-un paragraf:
+
+<p> Da click pe <a href=”http://www.domeniu.com”>locatie web</a> pentru a afla mai multe</p>
+
+Rezultat:
+Da click pe locatie web pentru a afla mai multe
+
+Obs: Pentru locatii pe internet valoarea din href trebuie sa inceapa cu “http://” altfel nu va intelege ca trebuie sa se duca pe Internet, va crede ca e vorba de un fisier.
+
+Componenta vizibila este textul dintre tag-ul de deschidere <a> si tag-ul de inchidere </a>
+Totusi fara atributul href nu va functiona, nu stie unde sa se duca.
+
+In practica se pot crea link-uri nu doar folosind text. Pot fi inserate in link-uri imagini, titluri si paragrafe. Imaginile sunt elemente inline dar titlurile si paragrafele sunt elemente de tip block deci este posibil sa fie create link-uri din aproape orice obiect din HTML. Pot fi create link-uri chiar si din liste sau tabele dar nu prea are sens pentru ca are sens doar ca listele si tablele sa contine link-uri nu invers. De cele mai multe ori vom crea link-uri din texte simple. Uneori imagini.
+
+Link-uri catre fisiere locale
+
+Pe langa link-uri catre site-uri externe putem crea link-uri catre fisiere din acelasi folder proiect.
+
+Sa presupunem in ca in folderul de proiect fisierul index.html contine un link catre un fisier imagine. 
+
+Exemplu pentru un link catre o imagine
+
+<a href=”./imagine1.jpg”> deschide imaginea <a>
+
+fisierul imagine1.jpg trebuie sa se afle in acelasi folder ca si index.html
+
+Obs. In VS Code daca incepeti sa scrieti intre ghilimele “./” vi se deschide o lista cu fisierele si folderele disponibile, deci puteti alege din lista fara sa mai editati numele fisierelor.
+
+///////////
+ Deschidere link-uri in tab-uri separate
+//////////////
+
+Daca adaugam atributul ‘target’ cu valoare “_blank” atunci link-ul va determina browserul sa deschida destinatia intr-un nou tab. Acest lucru permite inchiderea tab-ului deschis dar se pastreaza pagina originala.
+
+<p> Deschide <a href=”http://www.w3schools.com” target = “_blank”>w3schools</a> intr-un alt tab</a>
+
+
+Link-uri catre alte zone din aceeasi pagina
+
+Putem trimite link-uri catre alte sectiuni din pagina folosind notatia cu id-uri
+
+Daca undeva mai jos in pagina cream un element cu id=”sectiune_vanzari” ex:
+
+<h2 id=”sectiune_vanzari”>Lista produse</h2>
+
+atunci putem crea un link catre acest element cu id=”sectiune_vanzari”
+
+<p>Click pe <a href=”#sectiune_vanzari”>produse</a> pentru a ajunge le sectiunea de vanzari </p>
+
+O consecinta a acestui mecanism e ca putem crea asa-size broken links. Adica link-uri care nu functioneaza
+
+Daca dorim sa cream un meniu doar pentru design dar nu ne dorim sa functioneze putem sa scriem doar “#” la href:
+
+<a href =”#”> Home</a><br>
+<a href =”#”> Products</a><br>
+<a href =”#”> About Us</a><br>
+<a href =”#”> Contact</a><br>
+
+Link-urile nu vor duce nicaieri cand vom da click pe ele dar din punct de vedere al stilului se vor comporta ca link-uri
+
+
+
+///////////////
+Intrebari raspunsuri:
+//////////////
+
+Intrebari raspunsuri:
+
+Ce elemente HTML sunt cel mai folosite cu scop de container?
+Elementul ‘div’ este cel mai folosit ca si container de tip block. Din categoria elementelor inline, pentru uz general in cadrul textelor, este folosit ‘span’.
+
+Care este forma lui div?
+Div nu are initial nici o formatare specifica. Asta e chiar avantajul lui, poate fi formatat ulterior dupa cum e nevoie. Elementele div sunt de tip block ceea ce inseamna ca se aseaza pe verticala unele peste altele la stanga pornind din coltul stanga sus.
+
+Care este rolul lui span?
+Elementul ‘span’ poate fi folosit in interiorul paragrafelor si in general in interiorul elementelor de tip text putandu-se incadra in interiorul textelor fara a lasa vreun spatiu. Ca si in cazul lui div nu vine cu o formatare specifica ceea ce il face potrivit pentru stilizarea in orice forma se doreste.
+
+De ce este nevoie atat de elemente block ca si elemente inline?
+Elementele block sunt folosite in general pentru determinarea structurii paginii web, de sus in jos. Elementele inline sunt folosite in interiorul textelor pentru formatarea individuala a segmentelor de text
+
+Ce elemente sunt folosite pentru a introduce text in pagina?
+Pentru adaugarea de titluri, la inceputul unei sectiuni a paginii, se folosesc tagurile heading, h1, h2...h6
+Pentru text obisnuit se folosesc tag-urile paragraf ‘p’
+
+Din ce categorie, block sau inline fac parte elementele de tip text, paragraf si heading?
+Ambele tipuri sunt din categoria block. Textele trebuie sa stea unele sub altele ca intr-un document oarecare deci e normal sa fie din categoria block. Cu ‘span’ insa se poate formata orice segment de text din interiorul oricarui bloc text.
+
+Pentru formatare bold si italic ce elemente sunt folosite?
+Pentru bold exista elementul ‘b’ si ‘strong’ iar pentru italic ‘i’ si ‘em’.
+
+De ce e nevoie de ‘b’ si ‘strong’ pentru bold sau de ‘i’ si ‘em’ pentru italic? Nu era suficient doar <b> si <i>?
+Este un bun exemplu pentru intelegerea semnificatiei semantice a unor elemente HTML.
+Ambele fac acelasi lucru dar elementul ‘b’ nu spune nimic despre scopul lui in afara de faptul ca transforma textul in bold. Elementul ‘strong’ pe de alta parte specifica ca acel text e important pentru un anumit motiv. Diferenta intre cele doua este legata de semnificatia semantica dar nu mai mult. Insa daca cineva citeste codul va intelege ca textul ‘strong’ e important dar cel dat de tag-ul ‘b’ e doar text ingrosat. Acelasi lucru si in cazul lui ‘em’ si ‘i’
+
+///
+
+Intrebari raspunsuri:
+
+Care e diferenta dintre semantic si sintactic?
+Sintactic se refera la respectarea ordinii, semnelor de punctuatie, corectitudinea scrierii tag-urilor, atributelor, regulilor CSS. Semantica se refera la semnificatia atribuita elementelor. Are legatura cu sensul pe care il percepem noi, e mai vag decat strictetea sintatica. Totusi semantica a determinat crearea unor noi elemente cu o anumita semnificatie si destinatie in utilizare. 
+
+Ce elemente si de ce au fost create pentru a suplimenta lipsa de semnificatie semantica a lui div.
+Elementul div atat de puternic, tocmai pentru ca nu are valoare semantica si o destinatie anume, nu e suficient pentru claritatea codului. Au fost create alte elemente cu semnificatie dedicata: ‘header’, ‘main’, ‘footer’, ‘nav’, ‘aside’, ‘section’, ‘article’. Aceste elemente semantice sunt in esenta div-uri dar avand o denumire se va sti exact unde sunt folosite iar un designer web cand le vede stie unde sunt pozitionate in document si ce ar trebui sa contina.
+
+Care este diferenta dintre ‘head’, ‘header’, ‘heading’.
+Problema apare din cauza ca sunt cuvinte asemanatoare in limba engleza dar cu sensuri diferite.
+head este elementul ‘head’ ce se afla la inceputul unui document HTML, inainte de body si care contine informatii generale si link-uri la fisiere CSS, Javascript. 
+header este elementul semantic, din categoria lui ‘div’, care se afla in body inaintea informatiei utile din pagina. In romana se mai traduce uneori ca antet
+heading inseamna titlu, exista 6 tipuri de titluri ,h1, h2,..., h6
+
+///
+
+Intrebari raspunsuri:
+
+Care este forma unui element link?
+Un element link este creat cu tagul <a> si are forma
+<a></a>
+Pentru a functiona are nevoie sa fie vizibil:
+<a>text vizibil</a>
+si sa contina atributul href care permite trimiterea la destinatia continuta in href
+<a href=”destinatie”>text vizibil</a>
+
+Care este forma de scriere a unui link catre o pagina web?
+Pentru a trimite catre o pagina web atributul href trebuie sa contina atat adresa paginii cat si protocolul http/https
+<a href = “http://www.destinatie.com”>text vizibil</a>
+
+De ce trebuie sa adaugam si protocolul daca in browser noi nu trebuie sa facem asta?
+Browser-ul stie ce dorim noi cand scriem in bara de adrese url si completeaza automat adresa cu elementele lipsa, stie ca ne intereseaza doar site-uri web si adauga automat protoculul http/https. Pe de alta parte un link trebuie sa contina exact valoarea destinatiei pentru ca sunt doua posibilitati: adresa externa sau fisier local.
+Daca nu atasam protocolul ‘http’ browser-ul va considera implicit ca e vorba de un fisier local.
+Daca link-ul are forma
+<a href=”www.google.com”>mergi catre google</a>
+atunci cand dam click pe el va incerca sa dechida/download-eze fisierul “www.google.com”
+
+Cum se specifica in href destinatia catre un fisier local?
+Se specifica numel si calea. Este recomandat sa se specifice calea chiar daca fisierul e in acelasi folder cu fisierul HTML.
+
+Pentru acelasi folder
+href=”./destinatie.html”
+
+Pentru un folder din folderul in care se afla fisierul HTML
+href=”./resurse/destinatie.html”
+
+Pentru un folder din afara folderului in care se afla fisierul HTML
+href=”./../resurse/destinatie.html”
+
+Simbolul “..” inseamna ca se iese din folderul curent in folderul parinte.
+
+Obs. Cand tastati simbolul “..”, VS Code va ghideaza prin lista de foldere disponibile, la fel ca atunci cand, dupa ce tastati ‘/’, va ghideaza prin lista de fisiere.
+
+Exista o metoda aplicata deseori ca atunci cand dam click pe un link sa se deschida un nou tab si sa nu se incarce pagina destinatie in tab-ul curent. Ca si cand am da click dreapta pe link si am alege “Open in new tab”. Cum se procedeaza?
+Pentru ca pagina destinatie sa se deschida intr-un tab nou se adauga atributul target cu valoarea “_blank”
+<a href=”destinatie” target=”_blank”>text vizibil</a>
+
+Cum se trimite catre alta zona din aceeasi pagina folosind un link?
+Se specifica la href id-ul elementului din pagina catre care dorim ca browser-ul sa faca scroll.
+<a href=”#subtitlul5”>mergi la subtitlul 5</a>
+
+iar elementul catre care se face scroll are forma:
+<h3 id=”subtitlul5”> 1.5 Operatorul plus</a>
+
+Se foloseste adesea metoda de a crea link-uri nefunctionale in faza de design, fie ca e vorba de meniuri sau link-uri obisnuite dintr-o pagina in constructie. Nu se doreste crearea unui link real, ci doar se lucreaza la estetica. Cum se realizeaza aceste “broken links” ?
+Daca nu se pune nimic la href va da o eroare. Daca se completeaza la href cu un id “#nume_id” atunci va incerca sa gaseasca acel element cu id-ul din pagina. Daca nu gaseste id-ul specificat nu va face nimic. Pentru simplitate se lasa doar “#”.
+
+<a href=”#”>test broken link</a>
+
+
+///
+
