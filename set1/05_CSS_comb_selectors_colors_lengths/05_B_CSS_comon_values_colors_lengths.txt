@@ -1,265 +1,355 @@
+//////////////////////
+Proprietati si valori uzuale in CSS
+//////////////////////
+Proprietati si valori uzuale in CSS
 
+Cele mai utilizate proprietati in CSS pentru elementele de tip text si containere din categoria div sunt culorile si dimensiunile.
 
-CSS 
+Culorile
 
-CSS nu este limbaj de programare, el doar descrie prin intermediul proprietatilor felul in care este afisat un element in pagina.
+Toate culorile in CSS sunt definite in standardul sRGB(standard red, green and blue). Toate culorile urmand acest standard sunt create mixand rosu, verde si albastru tot la fel cum televizoarele si monitoarele genereaza toate culorile pe care le afiseaza. Mixand diferite nevele de rosu, verde si albastru putem crea milioane de culori si putem sa alegem ce culoare dorim.
 
-Mai intai trebuie sa stim cum se aplica stilurile. Adica cum functioneaza diferiti selectori si ordinea in care se aplica.
-Apoi ne vom referi la cele mai des intalnite proprietati, cele care se ocupa de culoare si dimensiune. 
+Exista 4 metode de generare si alegere a culorilor: cuvinte cheie(nume de culori), notatie hexazecimala, si valori generate prin functii RGB si HSL(hue, saturation, light)
 
-Mecanismul de cascada (Cascade din numele CSS - Cascade Style Sheet)
+Culori definite prin cuvinte cheie(sau denumiri de culori)
 
-Intr-o foaie de stiluri toate stilurile sunt citite de sus in jos si sunt aplicate in momentul in care sunt gasite. Daca pentru acelasi element se intampla ca o proprietate sa apara din nou undeva mai in josul foii CSS atunci acea proprietate poate fi rescrisa.
-Sa spunem ca avem un paragraf si sunt doua reguli CSS definite pentru selectarea si stilizarea lui:
+Valorile de tip cuvinte cheie pentru culori sunt nume date culorilor asa cum sunt red, green sau blue.
 
-p{
-   background: lightBlue;
-   font-size:20px;
+Lista de culori poate fi gasita pe majoritate site-urilor cu documentatie HTML. Exista 140 de culori care sunt utilizate de catre browsere. Iata un link pentru lista de culori de pe w3schools:
+https://www.w3schools.com/colors/colors_names.asp
+
+Cateva dintre cele mai folosite: aqua, black, blue, fuchsia, gray, green, lime, maroon, navy, olive, purple, red, silver, teal, white, and yellow.
+
+Ex:
+.todo{
+   color:green;
+   background-color:orange;
 }
 
-p{
-    background: lightGreen;
+Culorile hexazecimale
+
+Sunt de forma #4A23DD
+O culoare definita hexazecimal este de fapt un numar hexazecimal. Combinatia formata din cele 6 cifre hexazecimale determina un numar unic de la #000000 pana la #FFFFFF. Daca nu ati mai avut de a face cu numere hexazecimale, acestea nu sunt diferite ca si concept fata de numerele zecimale pe care le folosim noi. 
+Daca numerele zecimale sunt create din 10 cifre de la 0 la 9, numere hexazecimale au nevoie de 16 cifre de la 0 la 15. Cum nu exista cifre de la 10 la 15, in loc de 10, 11, ..., 15 se folosesc litere, A pentru 10, B pentru 11, C pentru 12, D pentru 13, E pentru 14, F pentru 15.
+
+Obs: Pentru a intelege mai bine de ce se foloseste formatul hexa ar trebui sa discutam despre reprezentarea numerelor hexa si cele binare in memorie. Nu este obligatoriu deci urmatoarea explicatie e optionala:
+
+O explicatie pentru folosirea numerelor hexa e aceea ca orice informatie, ca si culorile, trebuie stocata in format binar. Iar formatul binar e strans legat de formatul hexa din cauza ca 4 biti pot stoca o cifra hexa.
+
+Cum pot stoca 4 biti o cifra hexazecimala?
+hexa = 16, iar 16 = 2^4.  Bitul poate stoca 2 valori 0/1. 4 biti pot stoca orice combinatie de 4 valori de 0 sau 1.
+Cum fiecare bit poate genera o combinatie de  2 valori atunci 4 biti poate genera o combinatie de 2^4 valori, de la 0000 la 1111:
+0001, 0010, 0011, 0100, 0101.... 1111 in total 16
+
+ Byte-ul care este “celula” stocarii informatiei este format din 8 biti adica 4biti + 4biti respectiv poate contine 2 cifre hexa.
+
+Optimum pentru stocarea culorilor e folosirea a cate 256 de nuante pentru fiecare culoare dintre cele 3(RGB) rosu, verde, albastru.
+
+De ce 256? Pentru ca o un set de 256 de nuante pentru o culoare pot fi stocate pe un singur byte(1 byte = 8 biti = 2 ^ 8 combinatii = 256 posibilitati de nuante). 
+
+Mai mult de 256 de nuante ar fi mai mult decat necesar, ochiul uman abia daca distinge intre 2 nuante apropiate dintre cele 256.
+
+Am stabilit ca un byte este egal cu 2 x 4 biti, adica 2 seturi de valori de la 0 la 15 si de aici avem reprezentarea in hexa cu doua cifre pentru un byte. Deci intr-un byte pot fi scrise numere hexa de la 00 la FF. Exact la fel vor fi reprezentate si culorile stocate pe un byte.
+
+Acum problema e cum reprezentam 16 cifre daca nu avem decat 10 cifre, de la 0 la 9. Pentru cifrele mai mari decat 9 va trebuie sa apelam la litere: A, B, C, D, E, F. 
+Deci o culoare pe un byte va avea o valoare de la 00 la FF. Trei culori diferite daca ar fi sa le scriem in acelasi “numar” vor putea avea valori de la 00-00-00 la FF-FF-FF
+
+De ce ne trebuie trei culori? Am vorbit de 256 de nuante, e vorba de nuantele din aceeasi culoare fundamentala. Pentru a genera orice culoare ne trebuie combinatii de 3 culori fundamentale(rosu, verde, albastru) adica 256 ^ 3. Dar asta se rezolva stocand culoarea finala pe 3 bytes(24 biti), fiecare culoare fundamentala pe cate un byte.
+
+Revenim la reprezentarea in hexa a culorilor:
+O culoare e formata din 3 seturi de nuante de forma 
+#nuantaRosu nuantaVerde nuantaAlbastru
+
+De exemplu
+#FF0000 este culoarea rosie, cea mai puternica nuanta de rosu
+
+la fel pentru verde
+#00FF00
+
+sau albastru
+#0000FF
+
+Nuantele de gri sunt create folosind nuante de aceasi putere din fiecare culoare
+
+#444444 e un gri inchis iar #BBBBBB e un gri deschis.
+
+#000000 este negru iar #FFFFFF este alb
+
+Obs:
+Se pot crea culori cu doar 16 nuante pentru fiecare culoare si putem crea culori cu doar 3 cifre hexa.
+
+Culoarea rosu poate fi creata cu doar 3 cifre hexa
+#F00
+(cat priveste reprezentarea in memorie probabil ca de fapt e stocat tot pe 3 bytes, si valoarea reala e #FF0000)
+
+Exemplu 
+.titlu-rosu{
+color:#F00
 }
 
-Deoarece regula CSS care seteaza paragraful cu background ‘lightGreen’ apare mai tarziu va avea prioritate mai mare (takes precedence, higher priority)
-Astfel a doua regula va seta noul background in lightGreen dar dimensiunea fontului va ramane setata de prima regula la 20px.
+A aparut chiar si o metoda de a adauga transparenta pentru culorile hexa, adaugare a doua cifre dupa cele 6 la finalul valorii hexa:
 
-Cateodata putem gresi si cream doua declaratii CSS in aceasi regula
+.paragraf-top{background-color: #ff000080;}
 
-p{
- margin-right:10px;
-...
-margin-right:20px;
-}
-
-Din cauza mecanismului cascada se aplica cea de a doua declaratie si o anuleaza pe prima, astfel margin-right va avea valoare 20px.
-
-Nu intotdeauna e vorba de o gresela. Poate dorim sa aplicam o margine pentru toate laturile unui element de tip block si apoi dorim sa modificam doar marginea din dreapta. Mecanismul cascada ne ajuta sa setam toate marginile la o valoare ai apoi sa modificam una singura.
-
-p{
-margin:10px;
-margin-right:20px;
-}
-
- Toate marginile au fost setate la 10px dar mai apoi revenim si setam doar marginea din dreapta la 20px.
-
-este echivalent cu
-
-p{
-margin:10px 20px 10px 10px;
-}
-
-dar prima varianta e mai usor de citit.
-
-Obs: nu conteaza pentru moment ce face proprietatea margin, e doar un exemplu care se poate aplica in multe alte situatii, cu alte proprietati
-
-Specificitate
-In mod normal stilurile se aplica de sus in jos. Totusi dat fiind complexitatea situatiilor care apar intr-o pagina web este necesara rezolvarea urmatoarei probleme. Dorim sa aplicam un stil la toate paragrafele din pagina dar anumite paragrafe dorim sa fie aiba alt stil. 
-
-De exemplu dorim ca doar paragrafele dintr-un tabel sa aiba alta culoare.
-
-Pentru a selecta doar elementele p din tabel si nu cele din afara tabelului se foloseste selectorul combinat table p {...} (vom reveni la selectorii combinati)
-
-Aplicam un stil pentru toate paragrafele:
-p{
-color: gray;
-}
-
-Si apoi revenim si dorim ca numai paragrafele din interiorul tabelelor sa fie colorate in verde:
-table p{
-color: green;
-}
-
-Regula p{...} fiind mai generala spunem ca este mai putin specifica decat cea care se aplica pentru paragrafele din tabel table p {...}. Si acest lucru trebuie sa ramana valabil chiar daca reorganizam foaia de stiluri si urcam regula table p {...} deasupra regulii p{...}
-
-Astfel regula table p {...}  este mai ‘specifica’ pentru ca se aplica la un grup ‘selectat’ din grupul global de paragrafe, acest grup ‘selectat’ e doar grupul de paragrafe din tabele.
-
-Regula p{...} se aplica la toate paragrafele din pagina si este cea mai generala, nu ‘specifica’ nici un element paragraf anume
-
-Cand browser-ul intalneste un astfel de subset il considera prioritar si ii aloca o “specificitate” ridicata.
-
-Cei care lucreaza profesional in web design au nevoie uneori sa calculeze specificitatea pentru anumiti selectori pentru a sti cu siguranta ordinea de aplicare. Dar noi in faza de invatare nu e nevoie sa facem asta. Trebuie doar sa stim cateva reguli generale:
-
-Regulile CSS pentru id sau class sunt mai specifice decat cele fara.
-
-.para{...}
-sau
-#para3{...}
-sunt mai specifice decat
-p{...}
-sau
-section p {...}
-
-<section>
-   <p class=”para”>paragraf1</p>
-   <p>paragraf2</p>
-   <p id=”para3”>paragraf3</p>
-   <p>paragraf4</p>
-</section>
-
-Selectorii complecsi sunt mai specifici pe masura complexitatii lor: table p a {...} e mai specific decat p a {...}
-
-Selectorul pentru id, #id_elem, e mai specific decat selectorul pentru class, .class_elem
-
-Obs:Pentru ca atunci cand vom folosi Javascript vom avem de a face cu clase si id-uri e bine sa stim diferenta daca ne propunem sa stilizam dupa selectorul ID. Se poate adauga totusi o clasa la elementul cu ID si se poate ignora ID-ul cu totul cand vine vorba de CSS.
-
-Desi sunt metode de calcul a specificitatii folosind numere asociate fiecarui termen al unui selector si sume, ne vom rezuma la aceste reguli simple. 
-
-Se poate cauta pe Internet: “calculate CSS specificity”
+#ff000080 este culoarea hexa cu cele 2 cifre pentru transparenta la sfarsit, dupa primele 6: rosu cu valoarea #ff0000 iar setul de 2 cifre pentru transparenta este 80 , 80 fiind tot valoare hexa aleasa intre 00 si FF.
 
 //////////////////////
-Combinarea selectorilor
+Culorile RGB si RGBa
 //////////////////////
 
-Combinarea selectorilor
 
-Combinarea selectorilor permite selectarea elementelor din grupuri specifice.
+Culorile RGB si RGBa
 
-De exemplu daca dorim selectarea tuturor paragrafelor vom crea o regula
+Daca preferati sistemul zecimal celui hexa exista posibilitatea sa folositi numere zecimale pentru fiecare culoare.
+Functia rgb() accepta 3 valori pentru fiecare culoare, fiecare valoare fiind intre 0 si 255, adica tot 256 de nuante.
+Exemplu pentru culoarea rosu
 
-p{...}
+.titlu-rosu{
+color:rgb(255,0,0);
+}
 
-Dar daca ne dorim doar selectarea paragrafelor dintr-un tabel vom considera ca tabelul e container pentru paragrafe si il vom adauga in fata selectorului paragraf
+Pentru elemente pentru care ne dorim background transparent putem folosi functia rgba(). Functia rgba() foloseste un al patrulea parametru pentru a specifica nivelul de opacitate. Pentru valoarea 1 culoarea este complet opaca, la fel cum ar fi cu functia normala rgb(), iar pentru 0 e complet transparenta. O valoare zecimala intre 0 si 1 permite crearea unei culori semitransparente.
 
-table p{...}
+.tooltip{
+background-color:rgba(0,0,0,0.9);
+}
 
-In acest fel noul selector combinat e mai specific decat selectorul simplu pentru paragraf si va avea prioritate.
+poate determina ca elementul de clasa ‘tooltip’ sa fie de culoare negru usor transparent.
 
-Atunci cand folosim ambii selectori se creaza doua straturi de stiluri.
-p{...}
-table p{...}
-Prin aceasta metoda putem crea un ‘layer’ de stiluri general pentru paragrafe si apoi revenim si stilizam doar paragrafele pe care le dorim sa fie afisate altfel.
+Ciclarea prin variantele de reprezentare culoare in VS Code
 
-Odata cu posibilitatea combinarii selectorilor apar si alte posibile complicatii.
+VS Code ne ofera o unealta pentru alegerea culorii dar mai ales pentru alegerea modului de reprezentare a culorii.
+In VS Code odata ce am ales o culoare in CSS, facand mouse over peste acea culoare apare o fereastra de dialog care permite alegerea culorii cu optiunea de transparenta. Mai mult bara de nume contine valoarea rgb() a acelei culori. Daca se da click pe bara de nume se schimba functia in hexa si apoi cicleaza prin toate celelalte variante, hsl, hwb si din nou rgb, hexa...
 
-Sa luam ca exemplu un articol care contine cateva paragrafe. Unele paragrafe au si o clasa asociata
 
-<article class=”old-text”>
-   <p>paragraf1</p>
-   <p class=”para”>paragraf2</p>
-   <p>paragraf3</p>
-   <p class=”para”>paragraf4</p>
-   <p>paragraf5</p>
-</article>
+//////////////////
+Culorile HSL si HSLa (OPTIONAL)
+//////////////////
 
-Stim de mai devreme ca un selector de tip clasa e prioritar unuia de tip element. Si atunci care dintre urmatorii doi selectori combinati are prioritate pentru ca amandoi contin cate o clasa?
+Culorile HSL si HSLa
 
-article p.para {color:red;}
-article.old-text p {color:blue}
+Metode alternative de generare culori, HSL si HSLa, transparenta pentru modul hexa
 
-Rezultatul este
-paragraf1
-paragraf2
-paragraf3
-paragraf4
-paragraf5
+Este optional, pentru metode mai eficiente de generare a culorilor
 
-Mai intai trebuie sa stabilim ca termenul din selectorul combinat care face propriu-zis selectia este cel din dreapta. Se numeste selectorul cheie.
-Daca selectorul cheie este o clasa atunci acel selector combinat are prioritate daca restul selectorilor cheie nu contin o clasa.
+https://www.nixsensor.com/blog/what-is-hsl-color/
 
-In cazul nostru selectorii cheie din cele doua reguli CSS sunt p.para si p. Selectorul p.para contine o clasa si atunci va avea prioritate.
-
-Mai observam un lucru. Din moment ce selectorul cheie e la dreapta insemna ca citirea unui selector se face de la dreapta la stanga.
-
-Daca generalizam putem stabili ca selectorul combinat cu o clasa cat mai aproape de selectorul cheie are prioritate.
-
-Un lucru important legat de sintaxa, spatiul dintre element si clasa in cadrul unui selector.
-
-Sa luam exemplul de mai sus
-
-article p.para{...}
-
-Inseamna ca selecteaza paragrafele de clasa .para din interiorul unui articol. Avem aici 2 nivele, selector combinat din 2 selectori simpli, article si p.para
-
-Daca din gresela punem un spatiu intre p si .para selectorul devine
-
-article p .para {...}
-
-si are semnificatia: elementele de clasa .para din interiorul paragrafelor care se afla in interiorul unui articol. Avem aici 3 nivele, selector combinat din 3 selectori simpli: article, p si .para
-
-Poate e bine sa evitam selectorii de tip p.para si sa lasam doar numele clasei, .para. Motivul pentru care am continua sa folosim metoda cu element.clasa e ca e mai vizibil carui tip de element aplicam selectorul de tip clasa.
+Faptul ca folosind rgb cu 3 seturi de valori acest lucru genereaza un numar de culori echivalent cu spatiul definit de un cub cu laturile de dimensiunea 256 de puncte.
 
 
 
-Adaugare de stiluri folosind straturi de clase
-
-Adaugare de clase in straturi e asemantoare metodei cu selectori combinati in care cream stiluri pentru toate paragrafele si apoi adaugam selectori combinati doar pentru paragrafele din tabel.
-
-Se poate face acelasi lucru dar folosind clase, metoda cu clase fiind mai sigura decat metoda cu selectori de tip element.
-
-Obs. Metoda e folosita de multa vreme si a putut fi intalnita inca de la inceputurile librariei bootstrap. Puteti vedea un exemplu pentru butoane:
-
-https://getbootstrap.com/docs/4.0/components/buttons/
-
-<button class="btn btn-primary">Primary</button>
-
-<button  class="btn btn-secondary">Secondary</button>
-
-<button class="btn btn-success">Success</button>
-
-<button class="btn btn-danger">Danger</button>
-
-Se observa ca toate butoanele au clasa “btn” dai apoi se mai adauga un al doilea strat de stiluri sub forma unei a doua clase “btn-primary”, “btn-secondary”, “btn-success”, “btn-danger”
-
-Cea mai mare parte a stilurilor sunt continute in clasa “btn” si determina ca toate butoanele sa arate similar. Insa fiecare buton are rolul lui si trebuie stilizat diferit si atunci se modifica doar culoarea textului si a background-ului in clasa care este adaugata imediat dupa “btn”. E ca atunci cand toate tricourile unei echipe de fotbal sunt create la fel urmand ca la final sa fie adaugate numere diferite.
-
-///////////////
-Intrebari raspunsuri:
-///////////////
 
 
-Intrebari raspunsuri:
 
-Ce reprezinta denumirea de cascada din CSS (Cascade Style Sheet)?
-Cascade se refera la modul in care sunt aplicate stilurile dintr-un set de reguli CSS, fie ca regulile sunt intr-un singur loc, fie ca sunt in fisiere separate. Fiecare regula CSS se aplica la momentul in care browserul o intalneste. Asta determina ca aplicarea sa se faca de sus in jos de la prima regula pana la ultima. Si de aici si denumirea de cascada.
 
-Ce reprezinta suprascrierea stilurilor?
-Suprascrierea stilurilor inseamna inserarea unor noi reguli CSS in josul foii de stiluri care sa modifice stilurile deja aplicate pentru aceleasi elemente HTML.
 
-Este o eroare de design daca stilurile sunt suprascrise?
-Uneori poate fi o scapare de design intr-adevar dar de obicei este o strategie. Mai intai se stilizeaza un numar mare de elemente  ca si cand s-ar aplica o vopsea pe o suprafata intinsa. Apoi se revine si se modifica stilurile doar a unor elemente, ca atunci ca se adauga vopsea pentru elementele de decor la o masina, avion, casa, vapor etc.
 
-Ce reprezinta a fi mai specific, specificity?
-E vorba de diferenta intre stilul aplicat la general, pe mai multe elemente, si stilul aplicat doar anumitor elemente in mod mai precis. Ca efect determina ca stilul sa aiba prioritate mai mare.
 
-Cum se traduce specificity?
-Se poate traduce direct “mai specific” sau “mai selectiv”. Vom alege sa folosim acelasi termen din engleza, seamana cu cel din romana, “specific”. 
 
-Care sunt metodele ca un selector sa fie creat mai specific?
-Exista doua metode: fie se foloseste selectorul class sau ID, fie se creaza un selector combinat. 
-Se pot combina ambele metode si atunci selectorul devine inca si mai specific.
 
-Cum se aplica un selector de tip ‘class’?
-Se adauga atributul class in interiorul tag-ului de deschidere. Numele scris la atributul class e numele clasei. Numele clasei trebuie declarat in zona de stiluri adaugand un punct “.” in fata acestuia.
 
-.nume-clasa { declaratii CSS }
--------------------------------
-<p class=”nume-clasa”> paragraf </p>
+Insa modul acesta de reprezentare nu este foarte intuitiv, adica nu prea putem ghici culorile din combinatia de 3 numere.
 
-Care este diferenta dintre class si ID?
-Diferenta apare cand se foloseste limbajul HTML si atributul id are o valoare unica pentru un anumit element. Daca nu se foloseste in combinatie cu Javascript e mai bine se se foloseasca doar clase. 
-Selectorul ID are prioritate mai mare decat class.
+Insa exista metoda cu HSL care porneste de la o culoare si adauga 256 de nivele de saturatie si 256 de nivele de luminozitate. Prin urmare o singura culoare poate avea 256^2 variatiuni. Deci atat timp cat stim valoarea culorii, nuantele sunt create pe o baza intuitiva care este imprumutata din fotografie fiind cunoscuta mai ales de cei care postproceseaza imagini in aplicatii ca Adobe Photoshop, Lightroom.
 
-Ce inseamna un selector combinat?
-Un selector combinat este necesar atunci cand dorim selectarea unor elemente din interiorul altor elemente
-Daca dorim selectarea doar a elementelor A din interiorul elementelor B vom folosi selectorul 
-B A{...}
+Deci ce reprezinta H, S, L?
+Pentru cine e familiarizat cu generarea culorilor probabil ca ar prefera sa porneasca de la o nuanta (hue) si sa modifice saturatia acelei nuante(saturation) si luminozitatea(light). Ca si cand culoarea ar avea o valoare initiala fixa si apoi reglam intensitatea acelei culori si gradul de lumina. Acelasi lucru se intampla la camerele foto. Saturatia si luminozitatea(expunerea) sunt parametri care pot fi reglati chiar inaintea crearii fotografiei dar culoarea e cea originala, e doar cea pe care o are obiectul din lumea reala, sau culoarea pe care o percepe senzorul foto. 
+Pentru HSL sa ales ca metoda de reprezentare un cerc de culori cu 360 de culori pentru fiecare grad.
+Daca se adauga cercuri la exterior si interior atunci devine un disc care este fad la exterior, culori lipsite de saturatie, si culori puternice la interior, mai intunecat, de culoare mai intensa.
 
-<A></A>
-<A></A>
+//////////////////
+Proprietati pentru dimensiuni 
+//////////////////
 
-<B> 
-   <A></A>
-   <A></A>
-</B>
 
-<A></A>
-<A></A>
+Proprietati pentru dimensiuni 
 
-Se observa existenta unui spatiu intre B si A la scrierea selectorului B A{...}
+Obs: In cele ce urmeaza in coloana ne referim la elemente de masura si nu la proprietati. Dar va trebui sa folosim aceste proprietati pentru exemplificare:
+width - latimea unui element
+height - inaltimea unui element
+font-size - dimensiunea fontului
 
-Ce este selectorul cheie?
-Selectorul cheie este ultimul selector din dreapta intr-un selector combinat. El este cel mai important termen al selectorului combinat si are rol important in nivelul de specificitate/prioritate.
+Dimensiunile reprezinta orice proprietate care poate seta o anumita distanta, fie ca e vorba de lungime sau latime pentru un element, fie ca e vorba de distanta fata de alte elemente sau pozitia in sistemul de coordonate al paginii.
+Valorile sunt de doua feluri, cu unitati de masura fixe si relative. In general cele relative se refera la procente dintr-o alta proprietate a carei valoare ca la randul ei poate fi variabila cum e latimea paginii sau dimensiunea fontului.
 
-Cum se adauga clasele in forma de straturi / layers?
-Atributul class dintr-ul element poate contine mai multe nume de clase despartite prin spatii. Se pot adauga mai multe clase. Se obisnuieste pentru elementele care au aceeasi forma, sunt intr-o anumita categorie, dar unele dintre ele pot avrea caracteristici deosebite. Forma de baza se creaza cu o clasa generala iar pentru fiecare tip de element usor diferit din acea categorie se mai adauga o clasa care ii modifica doar o caracteristica sau un aspect subtil.
+Unitati de masura fixe (absolute lengths)
+
+Ne vom referi la inceput la unitati de masura fixe, cele cu care ne intalnim in viata reala adica, milimetri, centimetri dar cel mai adesea pixeli.
+
+Pixeli
+Un pixel are valoarea de 1/96 inch, deci sunt 96 de pixeli intr-un inch sau aproximativ 4pixeli intr-un milimetru, sau 40 pixeli intr-un cm(~38). Pentru telefoane unde densitatea de pixeli e mai mare, vor intra mai multi pixeli intr-un inch sau daca avem un nivel mai mare de zoom in browser vor fi mai putini pixeli pe un inch. Din setarile de display pentru monitor(scale and layout) se poate alege alt nivel de densitate pentru pixeli. Deci unitatile de masura fixe au limitarile lor.
+Dar in pofida acestor limitari, folosindu-le cel mai des, ne vom da seama de la un moment dat cam ce valori trebuie sa folosim pentru inaltimea unui element sau latimea unui tab dintr-un meniu. Este unitatea de masura cea mai folosita.
+Are forma:
+
+a{
+width:30px;
+}
+
+Am vazut ca pixelii se raporteaza la alte unitati de masura fixe, mm, cm, inch. Pixelii ofera o precizie mai mare chiar daca depinde de alte unitati metrice, 1 pixel e un sfert de mm, un cm are 40 de pixeli.
+
+Unitatile de masura fixe sunt utile atunci cand elementele contin sau sunt continute de alte elemente de dimensiune fixa. Dar cand trebuie sa le adaptam dimensiunile la latimea sau inaltimea paginii din browser, sau la nivelul de zoom, atunci unitatile de masura relative sunt mai eficiente.
+
+Unitati de masura relative (relative lengths)
+
+Se cheama relative pentru ca elementele la care se aplica depind de alte dimensiuni ale altor elemente din pagina, de obicei depind de dimensiunile elementului parinte.
+
+Cel mai simplu pentru a defini o valoare ca parte dintr-o alta valoare e sa folosim procente
+
+Procente
+Procentele sunt desemnate de simbolul procent %, este cea mai folosita unitate de masura relativa. Procentele se refera la dimensiunea elementului parinte. Astfel daca valoarea de 50% se aplica latimii unui element, automat aceasta este calculata din latimea elementului parinte:
+
+.coloana {
+width: 50%;
+}
+
+Elementul de clasa “coloana” va avea latimea de 50% din elementul parinte. De obicei avem nevoie de 50% cand elementul parinte contine 2 coloane sau de 33% cand contine 3 coloane, 25% cand contine 4 coloane etc... 
+Obs: La momentul potrivit se va vorbi despre margin, padding, border, si acestea trebuie luate in considerare cand se seteaza latimile unor coloane.
+
+Unitatea de masura Em
+Em reprezinta dimensiunea fontului din elementul parinte. Daca setati dimensiunea de 2em pentru un element paragraf atunci acesta va fi de 2 ori mai mare decat restul paragrafelor. Sau daca setati inaltimea unui element paragraf la 2 em atunci acest element va ocupa de 2 ori mai mult spatiu decat restul paragrafelor lasand cate o jumatate de rand spatiu suplimentar deasupra si dedesubt.
+Sau daca dimensiunea fontului este 25 pixeli (6mm) atunci 10 rem reprezinta o valoare de 250pixeli (60 mm)
+
+Dar de ce conteaza atat de mult dimensiunea fontului astfel incat alte elemente sa depinda de ea. E din cauza ca aproape toata informatia dintr-o pagina web e de tip text, si chiar daca nu e majoritar de tip text, textul are prioritate in asezarea in pagina. Deci tot ce e in pagina se raporteaza la dimensiunea textului.
+
+Dar nu prea are utilitate ca dimensiunea fontului sa depinda doar de elementul parinte. Daca exista fonturi diferite in elemente diferite? 
+
+REM(root em)
+
+Intr-adevar unitatea em are sens doar in interiorul elementelor in care am definit noi un font sau o dimensiune a acestuia. Daca dorim ca intreaga pagina sa aiba o unitate fixa de tip em atunci aceasta trebuie sa se raporteze la elementul ‘<body>’ sau root. Unitatea de tip em care se raporteaza la body / root se numeste REM.
+
+Si abia REM e cu adevarat relativa. Pe aceasta o vom folosi cel mai des
+
+body{
+font-size:20px;
+}
+
+//un alt element oarecare din pagina
+
+.menu-tab{
+width:4rem; //80pixeli
+}
+
+Elementul ‘.menu-tab’ va avea latimea de aproximativ 80pixeli.
+
+Elementul REM functioneaza ca procentele. Procentele sunt subunitare reprezentand o fractiune din dimensiunea elementului parinte, REM functioneaza supraunitar multiplicand valoarea pentru font la cat avem noi nevoie. E mai util pentru  texte, titluri, elemente de menu.
+
+Ex: setarea dimensiunii titlului de nivel 3 la 1.5 din dimensiunea fontului din root (body).
+
+h3{font-size:1.5rem}
+
+Daca ne dorim sa ne raportam inca si mai sus de body, chiar la dimensiunea viewport-ului, adica exact cat de spatiul vizibil permis de browser pentru pagina, atunci vom folosi unitati de masura care fac referive la ViewPort. Pentru latimea viewportului se foloseste vw iar pentru inaltimea viewportului se foloseste vh.
+
+Cu ajutorul acestor doua unitati de masura putem determina ca un element sa acopere un anumit procent din viewport sau chiar tot viewportul. O aplicatie des intalnita e realizarea unei aplicatii Javascript care are ca interfata un element care ocupa exact tot viewportul browser-ului.
+
+Unitatile relative VW si VH
+
+1 VW (view width) este 1 procent din latimea viewport-ului
+1 VH (view height) este 1 procent din inaltimea viewport-ului
+
+Pentru a crea un container care sa se incadreze in tot viewport-ul setam latimea si inaltimea la 100vw si 100vh
+
+main{
+background-color:ligtgreen;
+width:100vw;
+height:100vh;
+}
+
+<body>
+   <main>
+  ... restul continutului
+   </main>
+</body>
+
+Vor trebui insa anulate setarile CSS implicite ale browser-ului deci mai e un pic de munca. Se cheama normalizare. Aveti aici codul minimal pentru normalizare dar il veti intelege mai bine mai tarziu
+
+Trebuie adaugata si aceasta regula in zona de stiluri
+main{
+  padding:0px;
+  margin:0px;
+  box-sizing:border-box;
+}
+
+
+
+
+/////////////////
+Intrebari raspunsuri
+/////////////////
+
+
+Intrebari raspunsuri
+
+Care sunt categoriile de proprietati cele mai folosite in CSS?
+Cele mai folosite proprietati se refera la colorarea elementelor si setarea dimensiunilor sau pozitionare.
+
+Cum se obtine o culoare?
+De obicei se obtine combinant cele 3 culori fundamentale rosu, verde, albastru. Acestea sunt culorile fundamentale pentru televiziune si se combina in mod similar si in CSS, si pentru ecranele LCD.
+
+Ce proprietati se refera la culoare?
+Depinde ce dorim sa coloram. Vom dori sa coloram textul folosind proprietatea color, fundalul unui element - proprietatea background. Culorile se mai regasesc in definirea bordurii elementelor, umbrelor.
+
+Cate modalitati exista pentru a alege culorile in CSS?
+Exista 4 modalitati: prin desemnarea unei culori dupa nume, completarea cu o valoare in notatie hexazecimala, folosirea unei functii rgb() sau hsl() ,cu varianta de transparenta rgba() sau hsla().
+
+Care este forma unei culori definita de o valoare hexa?
+# urmat de 6 cifre hexa: ex #22AA22 este o culoare spre verde. Valoarea pentru verde este AA si e mai mare decat valorile pentru celelalte 2 culori, 22 pentru rosu si albastru
+
+De ce s-a ales formatul hexa?
+Pentru ca o culoare poate fi creata din alte 3 nuante de culori fundamentale. Fiecare nuanta de culoare fundamentala poate fi stocata pe un byte, un byte putand stoca una din 256 nuante din acea culoare fundamentala. Un byte poate contine 2 cifre hexa. Rezulta ca 3 nuante pot fi stocate folosind 3 bytes a cate 2 cifre hexa, in total 6 cifre hexa.
+
+Cum ne ajuta VS Code sa alegem o culoare? 
+Atunci cand scriem culoarea si mergem cu mouse over pe codul sau functia acelei culoari VS Code deschide o fereastra de dialog in care putem alege din cele mai folosite metode de generare culoare.
+
+///
+Intrebari raspunsuri
+
+La ce ne referim cand vorbim despre dimensiuni in CSS?
+Elementele din pagina au dimensiuni pentru ca au forma unui dreptunghi. Un dreptunghi are in mod firesc latime, inaltime, o bordura ca sa fie vizibil, un spatiu dintre bordura si continut, sau un spatiu dintre bordura si elementele externe si de asemeni coordonate in plan pentru ca trebuie pozitionat in spatiul determinat de fereastra browser-ului(viewport).  Toate acestea sunt dimensiuni.
+
+De cate tipuri sunt unitatile de masura pentru dimensiuni?
+Unitatile de masura sunt de doua categorii, fixe si relative.
+
+Care sunt unitatile fixe?
+Exista unitatile clasice, metrice, care sunt fixe, mm, cm, inch. Si mai exista pixelul(px) care se raporteaza oarecum la milimetru (1/4 mm) dar depinde de fapt de densitatea pe pixeli/inch care este nativa pe dispozitive mobile si care se poate seta 
+
+Care sunt unitatile relative?
+Procent (%), EM si REM, VH si VW.
+
+Cum functioneaza unitatea de masura procent.
+Determina ca latimea sau inaltimea unui element sa fie acel procent din latimea sau inaltimea parintelui elementului.
+
+Care este diferenta dintre EM si REM?
+REM inseamna Root EM. EM reprezinta dimensiunea fontului din elementul curent dar REM este dimensiunea fontului definita chiar in radacina paginii, in mod normal e elementul <html>
+Obs: In CSS setarea unei dimensiuni pentru root se realizeaza cu pseudoclasa :root 
+  :root { font-size:20px; }
+1REM este acum 20px
+ 
+Care este efectul aplicarii pentru latime sau inaltime 100vw sau 100vh?
+Determina ca elementul sa aiba o latime sau o inaltime identica cu latimea sau latimea viewport-ului.
+
+Daca un element <main> se afla in <body> cum se poate simula o latime de 50% din viewport?
+
+<body>
+  <main>
+ .................   
+  </main>
+</body>
+
+<style>
+  main{ width:50vw;}
+</style>
+
+este oarecum echivalent cu
+
+<style>
+html,body{
+  width:100%;
+  margin:0px;
+  padding:0px;
+}
+
+main{
+  width:50%
+}
+</style>
+
