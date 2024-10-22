@@ -1,0 +1,265 @@
+
+
+CSS 
+
+CSS nu este limbaj de programare, el doar descrie prin intermediul proprietatilor felul in care este afisat un element in pagina.
+
+Mai intai trebuie sa stim cum se aplica stilurile. Adica cum functioneaza diferiti selectori si ordinea in care se aplica.
+Apoi ne vom referi la cele mai des intalnite proprietati, cele care se ocupa de culoare si dimensiune. 
+
+Mecanismul de cascada (Cascade din numele CSS - Cascade Style Sheet)
+
+Intr-o foaie de stiluri toate stilurile sunt citite de sus in jos si sunt aplicate in momentul in care sunt gasite. Daca pentru acelasi element se intampla ca o proprietate sa apara din nou undeva mai in josul foii CSS atunci acea proprietate poate fi rescrisa.
+Sa spunem ca avem un paragraf si sunt doua reguli CSS definite pentru selectarea si stilizarea lui:
+
+p{
+   background: lightBlue;
+   font-size:20px;
+}
+
+p{
+    background: lightGreen;
+}
+
+Deoarece regula CSS care seteaza paragraful cu background ‘lightGreen’ apare mai tarziu va avea prioritate mai mare (takes precedence, higher priority)
+Astfel a doua regula va seta noul background in lightGreen dar dimensiunea fontului va ramane setata de prima regula la 20px.
+
+Cateodata putem gresi si cream doua declaratii CSS in aceasi regula
+
+p{
+ margin-right:10px;
+...
+margin-right:20px;
+}
+
+Din cauza mecanismului cascada se aplica cea de a doua declaratie si o anuleaza pe prima, astfel margin-right va avea valoare 20px.
+
+Nu intotdeauna e vorba de o gresela. Poate dorim sa aplicam o margine pentru toate laturile unui element de tip block si apoi dorim sa modificam doar marginea din dreapta. Mecanismul cascada ne ajuta sa setam toate marginile la o valoare ai apoi sa modificam una singura.
+
+p{
+margin:10px;
+margin-right:20px;
+}
+
+ Toate marginile au fost setate la 10px dar mai apoi revenim si setam doar marginea din dreapta la 20px.
+
+este echivalent cu
+
+p{
+margin:10px 20px 10px 10px;
+}
+
+dar prima varianta e mai usor de citit.
+
+Obs: nu conteaza pentru moment ce face proprietatea margin, e doar un exemplu care se poate aplica in multe alte situatii, cu alte proprietati
+
+Specificitate
+In mod normal stilurile se aplica de sus in jos. Totusi dat fiind complexitatea situatiilor care apar intr-o pagina web este necesara rezolvarea urmatoarei probleme. Dorim sa aplicam un stil la toate paragrafele din pagina dar anumite paragrafe dorim sa fie aiba alt stil. 
+
+De exemplu dorim ca doar paragrafele dintr-un tabel sa aiba alta culoare.
+
+Pentru a selecta doar elementele p din tabel si nu cele din afara tabelului se foloseste selectorul combinat table p {...} (vom reveni la selectorii combinati)
+
+Aplicam un stil pentru toate paragrafele:
+p{
+color: gray;
+}
+
+Si apoi revenim si dorim ca numai paragrafele din interiorul tabelelor sa fie colorate in verde:
+table p{
+color: green;
+}
+
+Regula p{...} fiind mai generala spunem ca este mai putin specifica decat cea care se aplica pentru paragrafele din tabel table p {...}. Si acest lucru trebuie sa ramana valabil chiar daca reorganizam foaia de stiluri si urcam regula table p {...} deasupra regulii p{...}
+
+Astfel regula table p {...}  este mai ‘specifica’ pentru ca se aplica la un grup ‘selectat’ din grupul global de paragrafe, acest grup ‘selectat’ e doar grupul de paragrafe din tabele.
+
+Regula p{...} se aplica la toate paragrafele din pagina si este cea mai generala, nu ‘specifica’ nici un element paragraf anume
+
+Cand browser-ul intalneste un astfel de subset il considera prioritar si ii aloca o “specificitate” ridicata.
+
+Cei care lucreaza profesional in web design au nevoie uneori sa calculeze specificitatea pentru anumiti selectori pentru a sti cu siguranta ordinea de aplicare. Dar noi in faza de invatare nu e nevoie sa facem asta. Trebuie doar sa stim cateva reguli generale:
+
+Regulile CSS pentru id sau class sunt mai specifice decat cele fara.
+
+.para{...}
+sau
+#para3{...}
+sunt mai specifice decat
+p{...}
+sau
+section p {...}
+
+<section>
+   <p class=”para”>paragraf1</p>
+   <p>paragraf2</p>
+   <p id=”para3”>paragraf3</p>
+   <p>paragraf4</p>
+</section>
+
+Selectorii complecsi sunt mai specifici pe masura complexitatii lor: table p a {...} e mai specific decat p a {...}
+
+Selectorul pentru id, #id_elem, e mai specific decat selectorul pentru class, .class_elem
+
+Obs:Pentru ca atunci cand vom folosi Javascript vom avem de a face cu clase si id-uri e bine sa stim diferenta daca ne propunem sa stilizam dupa selectorul ID. Se poate adauga totusi o clasa la elementul cu ID si se poate ignora ID-ul cu totul cand vine vorba de CSS.
+
+Desi sunt metode de calcul a specificitatii folosind numere asociate fiecarui termen al unui selector si sume, ne vom rezuma la aceste reguli simple. 
+
+Se poate cauta pe Internet: “calculate CSS specificity”
+
+//////////////////////
+Combinarea selectorilor
+//////////////////////
+
+Combinarea selectorilor
+
+Combinarea selectorilor permite selectarea elementelor din grupuri specifice.
+
+De exemplu daca dorim selectarea tuturor paragrafelor vom crea o regula
+
+p{...}
+
+Dar daca ne dorim doar selectarea paragrafelor dintr-un tabel vom considera ca tabelul e container pentru paragrafe si il vom adauga in fata selectorului paragraf
+
+table p{...}
+
+In acest fel noul selector combinat e mai specific decat selectorul simplu pentru paragraf si va avea prioritate.
+
+Atunci cand folosim ambii selectori se creaza doua straturi de stiluri.
+p{...}
+table p{...}
+Prin aceasta metoda putem crea un ‘layer’ de stiluri general pentru paragrafe si apoi revenim si stilizam doar paragrafele pe care le dorim sa fie afisate altfel.
+
+Odata cu posibilitatea combinarii selectorilor apar si alte posibile complicatii.
+
+Sa luam ca exemplu un articol care contine cateva paragrafe. Unele paragrafe au si o clasa asociata
+
+<article class=”old-text”>
+   <p>paragraf1</p>
+   <p class=”para”>paragraf2</p>
+   <p>paragraf3</p>
+   <p class=”para”>paragraf4</p>
+   <p>paragraf5</p>
+</article>
+
+Stim de mai devreme ca un selector de tip clasa e prioritar unuia de tip element. Si atunci care dintre urmatorii doi selectori combinati are prioritate pentru ca amandoi contin cate o clasa?
+
+article p.para {color:red;}
+article.old-text p {color:blue}
+
+Rezultatul este
+paragraf1
+paragraf2
+paragraf3
+paragraf4
+paragraf5
+
+Mai intai trebuie sa stabilim ca termenul din selectorul combinat care face propriu-zis selectia este cel din dreapta. Se numeste selectorul cheie.
+Daca selectorul cheie este o clasa atunci acel selector combinat are prioritate daca restul selectorilor cheie nu contin o clasa.
+
+In cazul nostru selectorii cheie din cele doua reguli CSS sunt p.para si p. Selectorul p.para contine o clasa si atunci va avea prioritate.
+
+Mai observam un lucru. Din moment ce selectorul cheie e la dreapta insemna ca citirea unui selector se face de la dreapta la stanga.
+
+Daca generalizam putem stabili ca selectorul combinat cu o clasa cat mai aproape de selectorul cheie are prioritate.
+
+Un lucru important legat de sintaxa, spatiul dintre element si clasa in cadrul unui selector.
+
+Sa luam exemplul de mai sus
+
+article p.para{...}
+
+Inseamna ca selecteaza paragrafele de clasa .para din interiorul unui articol. Avem aici 2 nivele, selector combinat din 2 selectori simpli, article si p.para
+
+Daca din gresela punem un spatiu intre p si .para selectorul devine
+
+article p .para {...}
+
+si are semnificatia: elementele de clasa .para din interiorul paragrafelor care se afla in interiorul unui articol. Avem aici 3 nivele, selector combinat din 3 selectori simpli: article, p si .para
+
+Poate e bine sa evitam selectorii de tip p.para si sa lasam doar numele clasei, .para. Motivul pentru care am continua sa folosim metoda cu element.clasa e ca e mai vizibil carui tip de element aplicam selectorul de tip clasa.
+
+
+
+Adaugare de stiluri folosind straturi de clase
+
+Adaugare de clase in straturi e asemantoare metodei cu selectori combinati in care cream stiluri pentru toate paragrafele si apoi adaugam selectori combinati doar pentru paragrafele din tabel.
+
+Se poate face acelasi lucru dar folosind clase, metoda cu clase fiind mai sigura decat metoda cu selectori de tip element.
+
+Obs. Metoda e folosita de multa vreme si a putut fi intalnita inca de la inceputurile librariei bootstrap. Puteti vedea un exemplu pentru butoane:
+
+https://getbootstrap.com/docs/4.0/components/buttons/
+
+<button class="btn btn-primary">Primary</button>
+
+<button  class="btn btn-secondary">Secondary</button>
+
+<button class="btn btn-success">Success</button>
+
+<button class="btn btn-danger">Danger</button>
+
+Se observa ca toate butoanele au clasa “btn” dai apoi se mai adauga un al doilea strat de stiluri sub forma unei a doua clase “btn-primary”, “btn-secondary”, “btn-success”, “btn-danger”
+
+Cea mai mare parte a stilurilor sunt continute in clasa “btn” si determina ca toate butoanele sa arate similar. Insa fiecare buton are rolul lui si trebuie stilizat diferit si atunci se modifica doar culoarea textului si a background-ului in clasa care este adaugata imediat dupa “btn”. E ca atunci cand toate tricourile unei echipe de fotbal sunt create la fel urmand ca la final sa fie adaugate numere diferite.
+
+///////////////
+Intrebari raspunsuri:
+///////////////
+
+
+Intrebari raspunsuri:
+
+Ce reprezinta denumirea de cascada din CSS (Cascade Style Sheet)?
+Cascade se refera la modul in care sunt aplicate stilurile dintr-un set de reguli CSS, fie ca regulile sunt intr-un singur loc, fie ca sunt in fisiere separate. Fiecare regula CSS se aplica la momentul in care browserul o intalneste. Asta determina ca aplicarea sa se faca de sus in jos de la prima regula pana la ultima. Si de aici si denumirea de cascada.
+
+Ce reprezinta suprascrierea stilurilor?
+Suprascrierea stilurilor inseamna inserarea unor noi reguli CSS in josul foii de stiluri care sa modifice stilurile deja aplicate pentru aceleasi elemente HTML.
+
+Este o eroare de design daca stilurile sunt suprascrise?
+Uneori poate fi o scapare de design intr-adevar dar de obicei este o strategie. Mai intai se stilizeaza un numar mare de elemente  ca si cand s-ar aplica o vopsea pe o suprafata intinsa. Apoi se revine si se modifica stilurile doar a unor elemente, ca atunci ca se adauga vopsea pentru elementele de decor la o masina, avion, casa, vapor etc.
+
+Ce reprezinta a fi mai specific, specificity?
+E vorba de diferenta intre stilul aplicat la general, pe mai multe elemente, si stilul aplicat doar anumitor elemente in mod mai precis. Ca efect determina ca stilul sa aiba prioritate mai mare.
+
+Cum se traduce specificity?
+Se poate traduce direct “mai specific” sau “mai selectiv”. Vom alege sa folosim acelasi termen din engleza, seamana cu cel din romana, “specific”. 
+
+Care sunt metodele ca un selector sa fie creat mai specific?
+Exista doua metode: fie se foloseste selectorul class sau ID, fie se creaza un selector combinat. 
+Se pot combina ambele metode si atunci selectorul devine inca si mai specific.
+
+Cum se aplica un selector de tip ‘class’?
+Se adauga atributul class in interiorul tag-ului de deschidere. Numele scris la atributul class e numele clasei. Numele clasei trebuie declarat in zona de stiluri adaugand un punct “.” in fata acestuia.
+
+.nume-clasa { declaratii CSS }
+-------------------------------
+<p class=”nume-clasa”> paragraf </p>
+
+Care este diferenta dintre class si ID?
+Diferenta apare cand se foloseste limbajul HTML si atributul id are o valoare unica pentru un anumit element. Daca nu se foloseste in combinatie cu Javascript e mai bine se se foloseasca doar clase. 
+Selectorul ID are prioritate mai mare decat class.
+
+Ce inseamna un selector combinat?
+Un selector combinat este necesar atunci cand dorim selectarea unor elemente din interiorul altor elemente
+Daca dorim selectarea doar a elementelor A din interiorul elementelor B vom folosi selectorul 
+B A{...}
+
+<A></A>
+<A></A>
+
+<B> 
+   <A></A>
+   <A></A>
+</B>
+
+<A></A>
+<A></A>
+
+Se observa existenta unui spatiu intre B si A la scrierea selectorului B A{...}
+
+Ce este selectorul cheie?
+Selectorul cheie este ultimul selector din dreapta intr-un selector combinat. El este cel mai important termen al selectorului combinat si are rol important in nivelul de specificitate/prioritate.
+
+Cum se adauga clasele in forma de straturi / layers?
+Atributul class dintr-ul element poate contine mai multe nume de clase despartite prin spatii. Se pot adauga mai multe clase. Se obisnuieste pentru elementele care au aceeasi forma, sunt intr-o anumita categorie, dar unele dintre ele pot avrea caracteristici deosebite. Forma de baza se creaza cu o clasa generala iar pentru fiecare tip de element usor diferit din acea categorie se mai adauga o clasa care ii modifica doar o caracteristica sau un aspect subtil.
